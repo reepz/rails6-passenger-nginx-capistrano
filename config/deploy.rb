@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "viara"
-set :repo_url, "git@github.com:reepz/viara.git"
+set :application, "viara.pl"
+set :repo_url, "git@github.com:reepz/viara.pl.git"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 set :deploy_to, "/var/www/#{fetch :application}"
 # Default branch is :master
