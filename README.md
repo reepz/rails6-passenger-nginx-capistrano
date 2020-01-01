@@ -39,7 +39,7 @@ exit
 
 7. sudo apt-get install libpq-dev *(required by postgresql)
 
-#####
+##### Installing ruby via rbenv 
 
 1. git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 2. echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
