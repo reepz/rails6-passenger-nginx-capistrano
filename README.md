@@ -137,7 +137,7 @@ sudo certbot --nginx
 ###### For MySQL
 `DATABASE_URL=mysql2://<appname>:$omeFancyPassword123@localhost/myapp`
 ```
-RAILS_MASTER_KEY=ohai
+RAILS_MASTER_KEY=ohai (is that the same as secret key base below and is it required?)
 SECRET_KEY_BASE=1234567890
 
 STRIPE_PUBLIC_KEY=x
