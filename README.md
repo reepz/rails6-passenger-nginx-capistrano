@@ -19,7 +19,7 @@ adduser deploy sudo
 su deploy
 cd ~
 mkdir .ssh & cd .ssh
-vim authorized_keys   -> copy public key (from machine you want to connect to via ssh)
+vim authorized_keys   -> copy public key (from machine you want to connect to via ssh) (change ownership?)
 sudo systemctl restart sshd
 exit
 ```
@@ -39,7 +39,6 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates redis-server redis-tools nodejs yarn
-sudo apt-get install libpq-dev *(required by postgresql)
 ```
 ##### Installing ruby via rbenv 
 
@@ -144,9 +143,21 @@ STRIPE_PUBLIC_KEY=x
 STRIPE_PRIVATE_KEY=y
 ```
 
-* Database creation
+* Postgresql installation
+```
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+```
 
 * Database initialization
+```
+sudo su - postgres
+createuser --pwprompt deploy
+createdb -O deploy myapp
+exit
+```
+
+##### manually connect to database by running: 
+`psql -U deploy -W -h 127.0.0.1 -d myapp`
 
 * How to run the test suite
 
