@@ -35,12 +35,23 @@ exit
 3. echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 4. sudo apt-get update
 
-5. sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev 
+5. sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates redis-server redis-tools nodejs yarn
 
-6. sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates redis-server redis-tools nodejs yarn
+7. sudo apt-get install libpq-dev *(required by postgresql)
 
-*(required by postgresql)
-7. sudo apt-get install libpq-dev
+#####
+
+1. git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+2. echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+3. echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+4. git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+5. echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+6. git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
+7. exec $SHELL
+8. rbenv install 2.6.4
+9. rbenv global 2.6.4
+10. ruby -v
+
 
 * Database creation
 
