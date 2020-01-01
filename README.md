@@ -14,16 +14,34 @@ create naked Ubuntu 18.04 LTS on any cloud provider
 
 ssh root@1.2.3.4
 
-1. adduser <appname>
-2. adduser <appname> sudo
-3. su <appname>
+1. adduser deploy
+2. adduser deploy sudo
+3. su deploy
 4. cd ~
 5. mkdir .ssh & cd .ssh
 6. vim authorized_keys   -> copy public key (from machine you want to connect to via ssh)
-7. sudo systemctl restart ssh6d
+7. sudo systemctl restart sshd
 exit
-8. ssh <appname>@1.2.3.4
+8. ssh deploy@1.2.3.4
   
+##### only allow deploy user login for optional increased security
+1. sudo /etc/ssh/sshd_config
+2. PermitRootLogin no
+3. AllowUsers deploy
+
+##### Install dependencies for compiiling Ruby along with Node.js and Yarn
+1. curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+2. curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+3. echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+4. sudo apt-get update
+
+5. sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev 
+
+6. sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates redis-server redis-tools nodejs yarn
+
+*(required by postgresql)
+7. sudo apt-get install libpq-dev
+
 * Database creation
 
 * Database initialization
