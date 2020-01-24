@@ -78,8 +78,8 @@ sudo systemctl restart nginx
 
 ##### Create server block in nginx to host our site, make sure deploy user is owner of the root folder
 ```
-sudo chown deploy:deploy /etc/nginx/sites-avaialble/appname
-sudo vim /etc/nginx/sites-avaialble/appname
+sudo chown <appname>:<appname> /etc/nginx/sites-avaialble/<appname>
+sudo vim /etc/nginx/sites-avaialble/<appname>
 ```
 
 ```
