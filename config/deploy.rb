@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "viara.pl"
+set :application, "viara"
 set :repo_url, "git@github.com:reepz/viara.pl.git"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 set :deploy_to, "/var/www/#{fetch :application}"
@@ -23,7 +23,6 @@ set :deploy_to, "/var/www/#{fetch :application}"
 
 # Default value for :linked_files is []
 append :linked_files, "config/database.yml"
-# append :linked_files, "config/master.key"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", ".bundle", "public/system", "public/uploads"
