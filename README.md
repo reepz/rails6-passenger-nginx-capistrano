@@ -79,6 +79,7 @@ sudo systemctl restart nginx
 ```
 sudo chown <appname>:<appname> /etc/nginx/sites-avaialble/<appname>
 sudo vim /etc/nginx/sites-avaialble/<appname>
+sudo ln -s /etc/nginx/sites-available/test.com /etc/nginx/sites-enabled/
 ```
 
 ```
