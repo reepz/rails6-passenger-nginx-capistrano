@@ -28,7 +28,6 @@ ssh deploy@1.2.3.4
 ##### only allow deploy user login for optional increased security
 ```
 sudo /etc/ssh/sshd_config
-PermitRootLogin no
 AllowUsers deploy
 ```
 
